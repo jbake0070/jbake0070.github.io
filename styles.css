@@ -1,0 +1,250 @@
+/* styles.css */
+body {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    margin: 0;
+    padding: 0;
+}
+
+.poppins-thin {
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+.poppins-extralight {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+.poppins-light {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.poppins-regular {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.poppins-medium {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.poppins-semibold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.poppins-bold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.poppins-extrabold {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: normal;
+}
+
+.poppins-black {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.poppins-thin-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 100;
+  font-style: italic;
+}
+
+.poppins-extralight-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: italic;
+}
+
+.poppins-light-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.poppins-regular-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.poppins-medium-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.poppins-semibold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.poppins-bold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: italic;
+}
+
+.poppins-extrabold-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 800;
+  font-style: italic;
+}
+
+.poppins-black-italic {
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
+h1 {    
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 3rem;
+  margin: 0;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #555;
+}
+
+h3 {
+  font-size: 1.25rem;
+  color: #555;
+}
+
+.reel {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+
+
+  /* Navigation Bar */
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav a {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-style: normal;
+    text-decoration: none;
+    color: black;
+    padding: 2rem 10rem;
+    font-size: 25px;
+}
+
+nav a:hover {
+    color: red;
+}
+
+/* Sections */
+section {
+    padding: 3rem;
+    text-align: center;
+}
+
+#header {
+    margin-top: 2rem;
+}
+
+
+
+
+.project {
+  display: flex;
+  flex-wrap: nowrap; /* Prevents wrapping */
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  
+}
+
+.project img {
+    width: 750px; /* Force specific width */
+    height: auto;
+    margin-right: 2rem;
+}
+
+.project div {
+    max-width: 45%;
+    text-align: left;
+}
+
+.project h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.project p {
+    font-size: 1.25rem;
+    line-height: 1.6;
+}
+
+
+
+
+
+.aboutme {
+  display: flex;
+  flex-wrap: nowrap; /* Prevents wrapping */
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
+}
+
+.aboutme img {
+    width: 300px; /* Force specific width */
+    height: auto;
+    margin-right: 2rem;
+}
+
+.aboutme div {
+    max-width: 45%;
+    text-align: left;
+}
+
+.aboutme h2 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.aboutme p {
+    font-size: 1.25rem;
+    line-height: 1.6;
+}
+
+.custom-margin-bot {
+  margin-bottom: 8rem; /* Adjust margin as needed */
+}
+.custom-margin-top {
+  margin-top: 2rem; /* Adjust margin as needed */
+}
