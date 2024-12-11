@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Reel</title>
+
+</head>
+<body>
+    <nav>
+        <a href="index.htm">Demo Reel</a>
+        <a href="about.htm">About</a>
+    </nav>
+
+
+    <section id="header">
+        <h1>James Baker</h1>
+        <h3 class="poppins-light">CFX Artist<br>Tool Developer<br>Problem Solver</h3>
+        <div class="reel">
+            <h1>Demo Reel</h1>
+            </div>
+        <div class="custom-margin-top">
+            <iframe width="1280" height="720" src="https://www.youtube.com/embed/hBGu_r3kvrc?si=22yBhUiEddssADgL&vq=hd1080" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <div class="custom-margin-top">
+            <h1>Breakdowns</h1>
+        </div>
+    </section>
+
+    
+    <section id="projects">
+        <div class="project">
+            <img src="website_imgs/sweater_breakdown.png" alt="Knit Sweater">
+            <div>
+                <h2>Knit Sweater</h2>
+                <p>This was created largely to demonstrate the capabilities of the Tubes to Curves HDA that I created. The simulation was done with Vellum, and was designed to have the same weight and feel as a thick, knitted sweater. I also developed a helpful tool that automatically finds the correct stitching loops for the Vellum Drape toolset. The fabric is simulated as cloth, which is passed through a system that copies knit loops across the surface based on the UVs of the fabric. These loops are passed through the Tubes to Curves HDA that I created and some frizz and flyaways are added to get the final look. The final render is 100% curves, with only basic point color noise modifying the material.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="project">
+            <img src="website_imgs/Dwarf_breakdown.png" alt="Dwarf Groom (Tubes to curves HDA)">
+            <div>
+                <h2>Dwarf Groom (Tubes to curves HDA)</h2>
+                <p>This groom was made in ZBrush and Houdini. The goal of the tube grooming tool was to be able to exactly match the silhouette of the tubes, which volumetric hair growth based on input geometry cannot do. The groom is generated entirely from the Tubes to Curves HDA which takes arbitrary tube geometry and converts it into hairs. The challenge was making it adjust and adapt to various input geometries, like non-convex cross sections or unreliable point numbering. After lots of iteration, I ended up with a solution that works for almost any tube geometry, regardless if it was generated in Maya, Houdini, or ZBrush. The tool itself is almost entirely written in Houdini VEX code.</p>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="projects">
+        <div class="project">
+            <img src="website_imgs/seatbelt_breakdown.png" alt="Knit Sweater">
+            <div>
+                <h2>Procedural Seatbelt Simulation Tool</h2>
+                <p>I tackled the problem of a seatbelt for my student film, which ended up being a very difficult challenge. I iterated on the design many times and ended up with a hybrid procedural and simulated method. I constructed a "convex slice" along the seatbelt plane, that started by the headrest, went down the body, and into the base of the seat. With some vdb manipulation to reduce clipping, this was the procedural base. I then ran a full vellum sim on the seatbelt to get more accurate collisions and physical interaction with the character. I streamlined the multi-step process into a single button that ran all the caches sequentially and added lots of parameters for fine-tuning and tweaking the simulation. It was a difficult process, but I was happy with the results, and the tool was used in dozens of shots in the film.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="project">
+            <img src="website_imgs/Ed_breakdown.png" alt="Knit Sweater">
+            <div>
+                <h2>Ed Groom and Clothes</h2>
+                <p><i>Student Accomplice</i> was my graduating class's senior film project. We had around 30 students working on it, which was an incredible experience. I learned so much about how to handle a full production pipeline and how to work with other artists. I was responsible for Ed's groom, and simulation setups for the clothes and the hair. I packaged the tools into an HDA that can run shots with the click of a button, and scripts to automate that process for the shots that need it. Iterating on tools for other artists taught me how to make robust tools that don't fail under the strain of the requirements of a film.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="project">
+            <img src="website_imgs/dog_breakdown.png" alt="Knit Sweater">
+            <div>
+                <h2>Cerberus</h2>
+                <p>This project was done with the goal to make a CG three-headed dog, Cerberus, using Houdini Vellum's new(ish) muscle simulation tools. The skeleton was extracted from a CT scan and split, cleaned, and retopologized in ZBrush. I rigged and animated the skeleton in Maya. The muscles and skin and final mesh were made in ZBrush. The muscle simulation was set up with tension lines driving the mucle contraction and expansion, and the tissue and skin layers were simulated on top of that as tetrahedral simulations. The groom was done in Houdini and driven by the underlying skin. The collar was a mix of Vellum cloth and rigid body dynamics. Everything was textured in Substance Painter, rendered in Karma XPU.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="custom-margin-bot">
+        <div class="project">
+            <img src="website_imgs/ML_breakdown.png" alt="Knit Sweater">
+            <div>
+                <h2>Hair Physics Neural Network</h2>
+                <p> created a neural network with a transformer architecture that could accurately "simulate" hair without needing any physical calculations. The training data was generated in Houdini with PDG and Vellum, and was run through a transformer model in PyTorch that we set up to run over each hair strand as a sample. It used next-frame generation to simulate given a starting hair position. There are lots of areas for improvement, as the model was quite restricted in what it could create, but it got results that were nearly indistinguishable from Vellum.</p>
+            </div>
+        </div>
+    </section>
+
+    
+
+
+
+
+</body>
+</html>
