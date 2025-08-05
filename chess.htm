@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+
+</head>
+<body>
+    <nav>
+        <a href="index.htm">Demo Reel</a>
+        <a href="about.htm">About</a>
+    </nav>
+    <section id="chess">
+
+        
+
+
+        
+        <div id="board"></div>
+
+        <!-- Load the external JS file -->
+        <script src="gui.js" type="module"></script>
+
+        <script type="module">
+            import { renderBoard,highlightCells} from './gui.js';
+            import { Engine} from './chess.js';
+
+            window.renderBoard = renderBoard; // expose to console
+            // window.test = test; // expose to console
+
+            let engine = new Engine();
+            document.addEventListener("DOMContentLoaded", () => {
+                renderBoard(engine);
+            });
+            let from = null;
+            let to = null;
+
+            document.addEventListener('mousedown', function(event) {
+                // Check if the clicked element is a div
+                if (event.target.tagName === 'DIV') {
+                    from = event.target.id;
+                    highlightCells(engine,from);
+                }
+                
+            });
+            document.addEventListener('mouseup', function(event) {
+                // Check if the clicked element is a div
+                if (event.target.tagName === 'DIV') {
+                    to = event.target.id;
+                }
+                if(to != null && from != null){
+                    engine.makeMove(from,to);
+                    // guiMakeMove(engine,from,to);
+                    to = null;
+                    from = null;
+                    renderBoard(engine);
+
+                }
+            });
+
+
+
+
+        </script>
+        
+        
+    </section>
+
+
+</body>
+</html>
