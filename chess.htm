@@ -14,7 +14,13 @@
     <nav>
         <a href="index.htm">Demo Reel</a>
         <a href="about.htm">About</a>
+        <a href="chess.htm">Chess</a>
     </nav>
+    <section id="header">
+        <h1 id="turn-text">White's Turn</h1>
+
+    </section>
+
     <section id="chess">
 
         
@@ -39,7 +45,9 @@
             });
             let from = null;
             let to = null;
-
+            let turn_count = 0;
+            let turn_text = "Black's Turn";
+            
             document.addEventListener('mousedown', function(event) {
                 // Check if the clicked element is a div
                 if (event.target.tagName === 'DIV') {
@@ -54,11 +62,25 @@
                     to = event.target.id;
                 }
                 if(to != null && from != null){
-                    engine.makeMove(from,to);
+                    
+                    let moved = engine.makeMove(from,to);
                     // guiMakeMove(engine,from,to);
                     to = null;
                     from = null;
                     renderBoard(engine);
+
+                    if(moved){
+                        turn_count +=1;
+                        if(document.getElementById("turn-text".innerText != "Checkmate!")){
+                            document.getElementById("turn-text").innerText = turn_text;
+                            if(turn_text == "White's Turn"){
+                                turn_text = "Black's Turn";
+                            }else{
+                                turn_text = "White's Turn";
+                            }
+                        }
+
+                    }
 
                 }
             });

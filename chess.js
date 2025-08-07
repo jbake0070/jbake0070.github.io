@@ -159,9 +159,7 @@ export class Engine{
         this.ruleset = new Ruleset();
     }
 
-    inCheck(){
-        let fromMove = this.evalFromPos;
-        let toMove = this.evalToPos;
+    inCheck(fromMove,toMove){
         
         let currBoardState = [...this.boardState.boardState];  // shallow copy
         
@@ -174,6 +172,10 @@ export class Engine{
         let k = this.boardState.getPosFromPiece("k");
         if(turn == 0){
         k = this.boardState.getPosFromPiece("K");
+        console.log("checking white check...")
+        }else{
+        console.log("checking black check...")
+
         }
         let all_moves = [];
         for(let i = 0; i < this.boardState.boardState.length;i++){
@@ -186,18 +188,59 @@ export class Engine{
                 let moves = this.generateMoves(str_move);
                 for(let m = 0; m < moves.length;m++){
                     all_moves.push(moves[m]);
-                    console.log(moves[m]);
                 }
             }
         }
         this.boardState.boardState = currBoardState;
-        console.log("all these moves: " + all_moves);
         if(containsSubarray(all_moves,k)){
             return 1;
         }
         return 0;
+    }
+
+    checkCheckmate(){
         
+        let currBoardState2 = [...this.boardState.boardState];  // shallow copy
+        console.log("currboardstate " + currBoardState2);
         
+        // this.boardState.updateState(fromMove,toMove);
+        let turn = 0;
+        if(this.turnCount%2==0){
+            turn = 1;
+            //blacks turn
+        }
+        let all_moves = [];
+        this.turnCount+=1;
+        for(let i = 0; i < this.boardState.boardState.length;i++){
+            if(this.boardState.boardState[i] != null){
+                let arr = to2D(i);
+                let str_move = arrMoveToStr(arr);
+                if(isBlack(this.boardState.getPieceFromPos(str_move))!=turn){
+                    continue;
+                }
+                let moves = this.generateMoves(str_move);
+                
+                for(let m = 0; m < moves.length;m++){
+                    all_moves.push([str_move,arrMoveToStr(moves[m])]);
+                    
+                }
+            }
+        }
+        for(let i = 0; i < all_moves.length;i++){
+            let incheck = this.inCheck(all_moves[i][0],all_moves[i][1]);
+            if(!incheck){
+                console.log(all_moves);
+                console.log("move that unchecks: " +all_moves[i][0],all_moves[i][1] )
+                this.boardState.boardState = currBoardState2;
+                this.turnCount-=1;
+                return 0;
+            }
+        }
+        this.turnCount-=1;
+        document.getElementById("turn-text").innerText = "Checkmate!";
+        console.log("CHECKMATE!");
+        this.boardState.boardState = currBoardState2;
+        return 1;
     }
 
     generateMoves(fromMove){
@@ -213,7 +256,6 @@ export class Engine{
         }else{
             pieceRuleset = this.ruleset.getRule(fromPiece.toLowerCase());
         }
-        console.log(this.ruleset);
         let legalMoves = [];
         let sweep = 0;
 
@@ -263,7 +305,7 @@ export class Engine{
                         if(fromPiece.toLowerCase() == "p"){
                             continue;
                         }
-                        let friendlyPiece = (isBlack(this.boardState.getPieceFromPos(testMove)) == isBlack(this.evalFromPiece));
+                        let friendlyPiece = isBlack(this.boardState.getPieceFromPos(testMove)) == isBlack(fromPiece);
                         if(friendlyPiece){
                             continue;
                         }
@@ -272,6 +314,7 @@ export class Engine{
                     finalPos = [finalY,finalX];
                 }
                 if(finalPos != null){
+                    
                     legalMoves.push(finalPos)
                 }
                 
@@ -437,6 +480,8 @@ export class Engine{
         }
     }
 
+
+    
     setEvalPieces(fromMove,toMove){
         let fromPiece = this.boardState.getPieceFromPos(fromMove);
         let toPiece = this.boardState.getPieceFromPos(toMove);
@@ -447,21 +492,25 @@ export class Engine{
     }
 
     makeMove(fromMove,toMove){
-        console.log("making move!");
+
         this.setEvalPieces(fromMove,toMove);
         let legal = this.checkLegality();
 
         if(legal){
-            if(this.inCheck()){
+            if(this.inCheck(fromMove,toMove)){
                 return 0;
             }
             //if legal, increment turnCount
-            this.turnCount+=1;
             this.boardState.updateState(fromMove,toMove);
             this.checkCastle();
             this.setCastleable();
 
             this.promotePawns();
+            this.checkCheckmate();
+            this.turnCount+=1;
+            return 1;
+        }else{
+            return 0;
         }
     }
 }
