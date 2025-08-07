@@ -116,7 +116,7 @@ function initBoard(engine){
             let color = colorPiece(piece);
             cell.style.color = color;
             cell.setAttribute("storeColor",chosenColor);
-            cell.textContent = pos;
+            // cell.textContent = pos;
             
 
             cellContainer.append(cell)
