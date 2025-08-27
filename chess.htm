@@ -44,7 +44,8 @@
             body: JSON.stringify({ lobby: '1234', move: { from: 'e2', to: 'e4' } })
             });
             
-            fetch('/api/state?lobby=1234').then(res => res.json()).then(data => console.log(data));
+            fetch('/api/state?lobby=1234').then(res => res.json()).then(data => console.log(data)); 
+            console.log("fetched i think?");
 
 
             window.renderBoard = renderBoard; // expose to console
