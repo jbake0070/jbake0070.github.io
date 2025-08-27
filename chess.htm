@@ -35,6 +35,15 @@
         <script type="module">
             import { renderBoard,highlightCells} from './gui.js';
             import { Engine} from './chess.js';
+            import {apitest} from './apitest.js';
+            apitest();
+
+            fetch('/api/move', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ lobby: '1234', move: { from: 'e2', to: 'e4' } })
+            });
+
 
             window.renderBoard = renderBoard; // expose to console
             // window.test = test; // expose to console
