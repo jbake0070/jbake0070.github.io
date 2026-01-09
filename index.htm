@@ -25,35 +25,47 @@
             <h1>Demo Reel</h1>
             </div>
         <div class="custom-margin-top">
-            <iframe width="1280" height="720" src="https://www.youtube.com/embed/hBGu_r3kvrc?si=22yBhUiEddssADgL&vq=hd1080" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
+            <iframe width="1450" height="564" src="https://www.youtube.com/embed/91QAofVPd9I" title="James Baker CFX Reel" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
         <div class="custom-margin-top">
             <h1>Breakdowns</h1>
         </div>
     </section>
 
+    <!--
+    bg shot 1
+    bg shot 2
+    bg shot 3 
+    bg shot 4
+    ed groom/clothes
+    seatbelt tool
+    sweater
+    cerberus
+    -->
     
-    <section id="projects">
-        <div class="project">
-            <img src="website_imgs/sweater_breakdown.png" alt="Knit Sweater">
-            <div>
-                <h2>Knit Sweater</h2>
-                <p>This was created largely to demonstrate the capabilities of the Tubes to Curves HDA that I created. The simulation was done with Vellum, and was designed to have the same weight and feel as a thick, knitted sweater. I also developed a helpful tool that automatically finds the correct stitching loops for the Vellum Drape toolset. The fabric is simulated as cloth, which is passed through a system that copies knit loops across the surface based on the UVs of the fabric. These loops are passed through the Tubes to Curves HDA that I created and some frizz and flyaways are added to get the final look. The final render is 100% curves, with only basic point color noise modifying the material.</p>
-            </div>
-        </div>
-    </section>
+
 
     <section id="projects">
         <div class="project">
-            <img src="website_imgs/Dwarf_breakdown.png" alt="Dwarf Groom (Tubes to curves HDA)">
+            <img src="website_imgs/bg2_shot1.png" alt="Bad Guys 2 Shotwork">
             <div>
-                <h2>Dwarf Groom (Tubes to curves HDA)</h2>
-                <p>This groom was made in ZBrush and Houdini. The goal of the tube grooming tool was to be able to exactly match the silhouette of the tubes, which volumetric hair growth based on input geometry cannot do. The groom is generated entirely from the Tubes to Curves HDA which takes arbitrary tube geometry and converts it into hairs. The challenge was making it adjust and adapt to various input geometries, like non-convex cross sections or unreliable point numbering. After lots of iteration, I ended up with a solution that works for almost any tube geometry, regardless if it was generated in Maya, Houdini, or ZBrush. The tool itself is almost entirely written in Houdini VEX code.</p>
+                <h2>Bad Guys 2 Shotwork</h2>
+                <p>I was responsible for the CFX shotwork for four shots in Bad Guys 2. The first two shots involved cloth simulation that had to be finaled to achieve the correct motion appeal according to the CFX Lead, as well as finaling the ropes to move with the character, and go taut as they pull away. This was achieved with some custom wraps and keyframing soft transforms to hit specific poses. For the button press shot, I animated the button and simulated the glove CFX, as well as the contact point when pushing the button. For the final shot, I simulated the CFX for all the crowd characters, ensuring that the simulations were stable, peripherals reacted to the character movement nicely, and the character's jerky movements didn't reveal anything that shouldn't be. This was accomplished with carefully animated constraints to pin the clothes to the motion at the correct times.</p>
             </div>
         </div>
     </section>
 
 
+
+
+    <section id="projects">
+        <div class="project">
+            <img src="website_imgs/Ed_breakdown.png" alt="Knit Sweater">
+            <div>
+                <h2>Ed Groom and Clothes</h2>
+                <p><i>Student Accomplice</i> was my graduating class's senior film project. We had around 30 students working on it, which was an incredible experience. I learned so much about how to handle a full production pipeline and how to work with other artists. I was responsible for Ed's groom, and simulation setups for the clothes and the hair. I packaged the tools into an HDA that can run shots with the click of a button, and scripts to automate that process for the shots that need it. Iterating on tools for other artists taught me how to make robust tools that don't fail under the strain of the requirements of a film.</p>
+            </div>
+        </div>
+    </section>
     <section id="projects">
         <div class="project">
             <img src="website_imgs/seatbelt_breakdown.png" alt="Knit Sweater">
@@ -63,13 +75,12 @@
             </div>
         </div>
     </section>
-
     <section id="projects">
         <div class="project">
-            <img src="website_imgs/Ed_breakdown.png" alt="Knit Sweater">
+            <img src="website_imgs/sweater_breakdown.png" alt="Knit Sweater">
             <div>
-                <h2>Ed Groom and Clothes</h2>
-                <p><i>Student Accomplice</i> was my graduating class's senior film project. We had around 30 students working on it, which was an incredible experience. I learned so much about how to handle a full production pipeline and how to work with other artists. I was responsible for Ed's groom, and simulation setups for the clothes and the hair. I packaged the tools into an HDA that can run shots with the click of a button, and scripts to automate that process for the shots that need it. Iterating on tools for other artists taught me how to make robust tools that don't fail under the strain of the requirements of a film.</p>
+                <h2>Knit Sweater</h2>
+                <p>This was created largely to demonstrate the capabilities of the Tubes to Curves HDA that I created. The simulation was done with Vellum, and was designed to have the same weight and feel as a thick, knitted sweater. I also developed a helpful tool that automatically finds the correct stitching loops for the Vellum Drape toolset. The fabric is simulated as cloth, which is passed through a system that copies knit loops across the surface based on the UVs of the fabric. These loops are passed through the Tubes to Curves HDA that I created and some frizz and flyaways are added to get the final look. The final render is 100% curves, with only basic point color noise modifying the material.</p>
             </div>
         </div>
     </section>
@@ -84,15 +95,7 @@
         </div>
     </section>
 
-    <section id="projects" class="custom-margin-bot">
-        <div class="project">
-            <img src="website_imgs/ML_breakdown.png" alt="Knit Sweater">
-            <div>
-                <h2>Hair Physics Neural Network</h2>
-                <p> created a neural network with a transformer architecture that could accurately "simulate" hair without needing any physical calculations. The training data was generated in Houdini with PDG and Vellum, and was run through a transformer model in PyTorch that we set up to run over each hair strand as a sample. It used next-frame generation to simulate given a starting hair position. There are lots of areas for improvement, as the model was quite restricted in what it could create, but it got results that were nearly indistinguishable from Vellum.</p>
-            </div>
-        </div>
-    </section>
+
 
     
 
